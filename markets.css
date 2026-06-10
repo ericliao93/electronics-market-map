@@ -1,0 +1,270 @@
+.market-page {
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 24px clamp(16px, 4vw, 48px) 52px;
+}
+
+.market-hero {
+  background:
+    linear-gradient(135deg, rgba(23, 33, 31, 0.92), rgba(15, 118, 110, 0.88)),
+    linear-gradient(90deg, rgba(255,255,255,0.16) 1px, transparent 1px);
+  background-size: auto, 28px 28px;
+  border-radius: 8px;
+  color: #fff;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-bottom: 20px;
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.market-hero h1 {
+  margin-bottom: 8px;
+}
+
+.market-hero p {
+  color: #d9eeea;
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
+.market-hero .eyebrow {
+  color: #aee8df;
+}
+
+.back-link {
+  align-self: start;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 900;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.market-summary {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 15px;
+}
+
+.metric-card span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: 1.35rem;
+  margin-top: 8px;
+}
+
+.metric-card small {
+  color: var(--muted);
+  display: block;
+  font-weight: 800;
+  margin-top: 3px;
+}
+
+.trend-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.chart-panel,
+.side-panel,
+.table-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.chart-panel {
+  overflow: hidden;
+}
+
+.chart-head {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.chart-head h2 {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.range-controls,
+.series-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.range-controls button,
+.series-controls button {
+  background: #f8faf7;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 900;
+  padding: 6px 10px;
+}
+
+.range-controls button.active,
+.series-controls button.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+
+.chart-wrap {
+  padding: 16px;
+}
+
+.trend-chart {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.axis-label,
+.chart-label {
+  fill: #68736d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.grid-line {
+  stroke: #dce3dd;
+  stroke-width: 1;
+}
+
+.trend-line {
+  fill: none;
+  stroke-width: 3;
+}
+
+.trend-area {
+  opacity: 0.08;
+}
+
+.side-panel {
+  align-self: start;
+  padding: 16px;
+}
+
+.side-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.market-notes {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.market-notes li {
+  background: #f8faf7;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  list-style: none;
+  padding: 10px;
+}
+
+.table-panel {
+  grid-column: 1 / -1;
+  overflow: hidden;
+}
+
+.table-panel h2 {
+  border-bottom: 1px solid var(--line);
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 14px 16px;
+}
+
+.market-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.market-table th,
+.market-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 16px;
+  text-align: right;
+}
+
+.market-table th:first-child,
+.market-table td:first-child {
+  text-align: left;
+}
+
+.market-table th {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.positive {
+  color: #16804f;
+}
+
+.negative {
+  color: #b04444;
+}
+
+.data-source {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 14px;
+}
+
+@media (max-width: 940px) {
+  .market-hero,
+  .trend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .market-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .market-table {
+    min-width: 680px;
+  }
+
+  .table-panel {
+    overflow-x: auto;
+  }
+}
