@@ -165,3 +165,8 @@
     gap: 4px;
   }
 }
+
+#company-radar .quote-meta,
+#company-radar .company-facts div:first-child {
+    display: none;
+}
