@@ -1,0 +1,167 @@
+.quote-market-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 18px;
+}
+
+.quote-market-tabs button {
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  background: #f8fafc;
+  color: #1f2937;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.quote-market-tabs button.active {
+  background: #0f766e;
+  color: #fff;
+  border-color: #0f766e;
+}
+
+.quote-market-tabs span {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 20px;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+  font-size: 0.82em;
+}
+
+.quote-market-tabs button.active span {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.company-card-top,
+.quote-line,
+.quote-meta,
+.company-intro {
+  display: block;
+}
+
+.company-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.company-card-top small {
+  color: #64748b;
+  text-align: right;
+}
+
+.quote-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quote-line strong {
+  font-size: 1.18rem;
+}
+
+.quote-line.up,
+.quote-detail-box.up strong {
+  color: #b91c1c;
+}
+
+.quote-line.down,
+.quote-detail-box.down strong {
+  color: #047857;
+}
+
+.quote-meta {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.company-intro {
+  margin-top: 8px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.quote-empty {
+  padding: 16px;
+  color: #64748b;
+}
+
+.quote-detail-box {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.quote-detail-box div {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  padding: 10px;
+  background: #f8fafc;
+}
+
+.quote-detail-box span {
+  display: block;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.quote-detail-box strong {
+  display: block;
+  margin-top: 4px;
+  color: #111827;
+}
+
+.company-facts div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.company-facts dt {
+  color: #64748b;
+}
+
+.company-facts dd {
+  margin: 0;
+  color: #1f2937;
+}
+
+@media (max-width: 720px) {
+  .quote-market-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quote-market-tabs button {
+    width: 100%;
+  }
+
+  .company-card-top {
+    display: block;
+  }
+
+  .company-card-top small {
+    display: block;
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  .quote-detail-box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .company-facts div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
