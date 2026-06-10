@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electronics Market Map 電子產業地圖</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <strong>Electronics Market Map</strong>
+          <small>電子產業鏈・公司雷達</small>
+        </div>
+      </div>
+      <nav class="nav-links" aria-label="主要導覽">
+        <a href="#today">今日重點</a>
+        <a href="#market-dashboard">市場儀表板</a>
+        <a href="#map">產業地圖</a>
+        <a href="#supply-chain">供應鏈地圖</a>
+        <a href="#calendar">一週時間表</a>
+        <a href="./markets/taiwan/index.html">台股趨勢</a>
+        <a href="./markets/us/index.html">美股趨勢</a>
+        <a href="#themes">題材總覽</a>
+        <a href="#sources">來源</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="workspace">
+        <div class="hero-copy">
+          <p class="eyebrow">電子產業市場脈絡整理</p>
+          <h1>把半導體、零組件、代工、品牌與通路整理成一眼可讀的產業地圖。</h1>
+          <p>
+            以產業節點、題材卡、公司雷達與事件時間表串起美股、台股與全球總經訊號，
+            幫你快速找到本週需要盯的風險與機會。
+          </p>
+        </div>
+
+        <section class="market-strip" aria-label="市場摘要">
+          <div>
+            <span>高影響事件</span>
+            <strong id="highImpactCount">0</strong>
+          </div>
+          <div>
+            <span>追蹤產業</span>
+            <strong id="sectorCount">0</strong>
+          </div>
+          <div>
+            <span>焦點公司</span>
+            <strong id="companyCount">0</strong>
+          </div>
+          <div>
+            <span>資料更新</span>
+            <strong id="dataUpdatedAt">更新中</strong>
+          </div>
+        </section>
+      </section>
+
+      <section id="today" class="today-section">
+        <div class="section-head">
+          <p class="eyebrow">今日市場重點</p>
+          <h2>先看這 5 件事，就能抓住今天市場方向</h2>
+          <p>用白話整理事件、題材、台股、美股和風險，適合先快速掃一輪。</p>
+        </div>
+        <div id="todayFocusGrid" class="today-focus-grid"></div>
+      </section>
+
+      <section id="market-dashboard" class="dashboard-section">
+        <div class="section-head">
+          <p class="eyebrow">市場儀表板</p>
+          <h2>10 秒看懂市場現在偏向進攻還是防守</h2>
+          <p>把大盤、利率匯率、原物料、半導體和航運指標翻成白話解讀，並標出可能影響的產業。</p>
+        </div>
+
+        <div class="dashboard-toolbar">
+          <button id="marketRefresh" type="button">更新市場指標</button>
+          <span id="marketStatus">市場指標準備中</span>
+        </div>
+
+        <div class="dashboard-overview">
+          <div id="marketSummary" class="market-summary" aria-live="polite"></div>
+          <aside class="flow-panel">
+            <div class="flow-head">
+              <span>今日資金流向</span>
+              <strong>強弱星等</strong>
+            </div>
+            <div id="flowDashboard" class="flow-dashboard" aria-live="polite"></div>
+          </aside>
+        </div>
+
+        <div id="marketIndicatorGroups" class="market-indicator-groups"></div>
+      </section>
+
+      <section class="market-entry-section">
+        <div class="section-head">
+          <p class="eyebrow">市場趨勢</p>
+          <h2>台灣股市與美國股市趨勢圖</h2>
+          <p>獨立目錄放置，方便把台股和美股分開追蹤；資料可用更新腳本重新抓取。</p>
+        </div>
+        <div class="market-entry-grid">
+          <a class="market-entry-card taiwan" href="./markets/taiwan/index.html">
+            <span>TAIWAN</span>
+            <strong>台灣股市趨勢</strong>
+            <p>加權指數、台灣 50 ETF，觀察大型權值、半導體與電子零組件方向。</p>
+          </a>
+          <a class="market-entry-card us" href="./markets/us/index.html">
+            <span>UNITED STATES</span>
+            <strong>美國股市趨勢</strong>
+            <p>S&P 500、Nasdaq、Dow Jones，追蹤成長股與大盤風格輪動。</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="calendar" class="section-grid calendar-section">
+        <div class="section-head">
+          <p class="eyebrow">未來一週</p>
+          <h2>世界財經重要事項時間表</h2>
+          <p>時間以台北時間呈現；美股財報若為盤後公布，台北多落在隔日清晨。</p>
+        </div>
+
+        <div class="calendar-tools" role="group" aria-label="事件篩選">
+          <button class="active" type="button" data-event-filter="all">全部</button>
+          <button type="button" data-event-filter="macro">總經</button>
+          <button type="button" data-event-filter="earnings">財報</button>
+          <button type="button" data-event-filter="policy">央行</button>
+          <button type="button" data-event-filter="high">高影響</button>
+        </div>
+
+        <div id="eventTimeline" class="timeline"></div>
+
+        <aside class="watch-panel">
+          <h3>延伸觀察</h3>
+          <div id="watchList" class="watch-list"></div>
+        </aside>
+      </section>
+
+      <section id="map" class="section-grid map-section">
+        <div class="section-head">
+          <p class="eyebrow">產業地圖</p>
+          <h2>電子產業鏈：上游 / 中游 / 下游</h2>
+          <p>先把產業拆成三段：誰做關鍵零件、誰組成設備、誰把產品賣到終端。</p>
+        </div>
+
+        <div id="industryMap" class="industry-stage-grid" aria-label="電子產業鏈三段式"></div>
+      </section>
+
+      <section id="supply-chain" class="supply-section">
+        <div class="section-head">
+          <p class="eyebrow">供應鏈地圖</p>
+          <h2>點公司，看懂上游、下游和互相影響</h2>
+          <p>從設備材料、半導體、零組件、代工、品牌一路看到終端銷售。</p>
+        </div>
+
+        <div class="chain-flow" aria-label="供應鏈流程">
+          <span>終端銷售</span>
+          <b>→</b>
+          <span>品牌產品</span>
+          <b>→</b>
+          <span>代工組裝</span>
+          <b>→</b>
+          <span>模組零組件</span>
+          <b>→</b>
+          <span>PCB / 載板</span>
+          <b>→</b>
+          <span>半導體 IC</span>
+          <b>→</b>
+          <span>晶圓封測</span>
+          <b>→</b>
+          <span>設備與材料</span>
+        </div>
+
+        <label class="supply-search">
+          <span>搜尋公司或題材</span>
+          <input id="supplySearch" type="search" placeholder="例如：美光、國巨、蘋果、PCB、終端通路">
+        </label>
+        <p id="supplySearchResult" class="supply-search-result"></p>
+
+        <div class="supply-layout">
+          <div id="supplyColumns" class="supply-columns" aria-label="供應鏈上中下游"></div>
+          <aside id="supplyDetail" class="supply-detail" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section id="themes" class="themes-section">
+        <div class="section-head">
+          <p class="eyebrow">題材總覽</p>
+          <h2>本週市場可能反覆交易的主軸</h2>
+        </div>
+
+        <div class="theme-toolbar">
+          <label>
+            <span>搜尋題材或公司</span>
+            <input id="themeSearch" type="search" placeholder="例如：半導體、被動元件、終端通路、PCB">
+          </label>
+        </div>
+
+        <div id="themeGrid" class="theme-grid"></div>
+      </section>
+
+      <section id="company-radar" class="company-section">
+        <div class="section-head">
+          <p class="eyebrow">公司雷達</p>
+          <h2>依當日漲幅追蹤電子產業公司</h2>
+          <p>卡片會依今日漲幅由高到低排序。點擊公司後，可以看到它在電子產業鏈中的位置、上下游關係與相關題材。</p>
+        </div>
+        <div class="company-toolbar">
+          <button id="quoteRefresh" type="button">更新報價</button>
+          <span id="quoteStatus">報價準備中</span>
+        </div>
+        <div class="company-radar-layout">
+          <div id="companyRail" class="company-rail"></div>
+          <aside id="companyDetail" class="company-detail" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section id="sources" class="sources-section">
+        <h2>資料來源與聲明</h2>
+        <p>
+          本頁為靜態示範網站，整理公開日曆與公司公告資訊，不構成投資建議。
+          事件時間可能變動，交易前請以官方公告與交易所日曆為準。
+        </p>
+        <ul>
+          <li><a href="https://aistockmap.com/" target="_blank" rel="noreferrer">AI 智慧產業地圖</a></li>
+          <li><a href="https://www.bls.gov/cpi/" target="_blank" rel="noreferrer">U.S. Bureau of Labor Statistics CPI</a></li>
+          <li><a href="https://www.scotiabank.com/ca/en/about/economics/economics-publications/post.other-publications.calendar-of-economic-release-dates.calendar-of-economic-release-dates--june-2026-.html" target="_blank" rel="noreferrer">Scotiabank Economic Calendar</a></li>
+          <li><a href="https://investor.oracle.com/events-and-presentations/default.aspx" target="_blank" rel="noreferrer">Oracle Investor Relations</a></li>
+          <li><a href="https://www.businesswire.com/news/home/20260601840348/en/Adobe-to-Announce-Q2-FY2026-Earnings-Results-on-June-11-2026" target="_blank" rel="noreferrer">Adobe Q2 FY2026 announcement</a></li>
+          <li><a href="https://adpemploymentreport.com/" target="_blank" rel="noreferrer">ADP National Employment Report</a></li>
+          <li><a href="https://finance.yahoo.com/" target="_blank" rel="noreferrer">Yahoo Finance market data</a></li>
+          <li><a href="https://tradingeconomics.com/" target="_blank" rel="noreferrer">Trading Economics market indicators</a></li>
+          <li><a href="https://en.sse.net.cn/indices/scfinew.jsp" target="_blank" rel="noreferrer">Shanghai Shipping Exchange SCFI</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./supply-data.js"></script>
+    <script src="./electronics-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

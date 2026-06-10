@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.pid
+.server.pid
+.cloudflared.pid
+.env
+.venv/
+venv/

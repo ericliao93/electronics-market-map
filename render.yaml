@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: electronics-market-map
+    runtime: python
+    buildCommand: python -m compileall .
+    startCommand: python server.py
+    autoDeploy: true
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
