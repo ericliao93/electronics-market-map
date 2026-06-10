@@ -347,6 +347,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
 
+try:
+    import quote_api_patch
+    quote_api_patch.install(globals())
+except Exception as patch_error:
+    print(f'quote api patch disabled: {patch_error}')
+
 def main() -> None:
     server = ThreadingHTTPServer((HOST, PORT), DashboardHandler)
     print(f"Serving AI stock map at http://{HOST}:{PORT}")
@@ -355,3 +361,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
