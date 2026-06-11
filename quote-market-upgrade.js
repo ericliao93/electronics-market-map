@@ -237,3 +237,5 @@
   render();
   refreshQuotes(true);
 })();
+
+;(()=>{const d=window.MARKET_MAP_DATA;if(!d||!Array.isArray(d.companies))return;const m=new Map(d.companies.map(c=>[c.id,c]));const sym=c=>c.quoteSymbol||c.ticker||"";function apply(){document.querySelectorAll("#companyRail .company-card").forEach(card=>{const c=m.get(card.dataset.companyId);if(!c)return;const sm=card.querySelector(".company-card-top small");if(sm&&!sm.querySelector(".company-code")){sm.textContent="";const code=document.createElement("span");code.className="company-code";code.textContent=sym(c);const ind=document.createElement("span");ind.className="company-industry";ind.textContent=c.layerLabel||c.layer||"\u96fb\u5b50\u7522\u696d";sm.append(code,ind)}const intro=card.querySelector(".company-intro");if(intro)intro.textContent=c.description||c.intro||""})}const r=document.getElementById("companyRail");if(r)new MutationObserver(apply).observe(r,{childList:true,subtree:true});apply()})();
