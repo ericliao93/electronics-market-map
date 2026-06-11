@@ -170,3 +170,29 @@
 #company-radar .company-facts div:first-child {
     display: none;
 }
+
+/* radar list layout */
+#company-radar{--radar-line:#d7e1ee;--radar-bg:#f1f6fb;--radar-hot:#e11d2e;--radar-cool:#0f766e}
+#company-radar .section-head{margin-bottom:14px}
+#company-radar .section-head p:last-child{max-width:760px}
+#company-radar .company-toolbar{align-items:center;border:1px solid var(--radar-line);border-bottom:0;border-radius:14px 14px 0 0;display:flex;gap:12px;justify-content:space-between;margin:0;padding:12px 14px}
+#company-radar #quoteRefresh{border-radius:999px;padding:7px 12px}
+#company-radar #quoteStatus{color:#475569;font-size:.9rem}
+#company-radar .quote-market-tabs{background:#edf3f8;border:1px solid var(--radar-line);border-bottom:0;display:grid;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr));margin:0;padding:10px 12px}
+#company-radar .quote-market-tabs button{background:transparent;border:1px solid transparent;border-radius:8px;color:#111827;min-height:36px;padding:7px 8px}
+#company-radar .quote-market-tabs button.active{background:#2f80ff;border-color:#2f80ff;box-shadow:none;color:#fff}
+#company-radar .company-radar-layout{background:var(--radar-bg);border:1px solid var(--radar-line);border-radius:0 0 14px 14px;display:grid;grid-template-columns:1fr;overflow:hidden}
+#company-radar .company-rail{counter-reset:radar-rank;display:block;max-height:520px;overflow-y:auto;overscroll-behavior:contain;padding:8px 0;scrollbar-color:#b7c6d8 transparent;scrollbar-width:thin}
+#company-radar .company-card{align-items:center;background:transparent;border:0;border-left:3px solid transparent;border-radius:0;box-shadow:none;counter-increment:radar-rank;display:grid;gap:4px 12px;grid-template-columns:36px minmax(0,1fr) minmax(120px,auto);min-height:62px;padding:10px 18px 10px 12px;text-align:left;width:100%}
+#company-radar .company-card:before{color:#0f172a;content:counter(radar-rank);font-size:.86rem;grid-column:1;grid-row:1/span 2;justify-self:center}
+#company-radar .company-card:hover,#company-radar .company-card.active{background:rgba(255,255,255,.68);border-left-color:var(--radar-hot);box-shadow:none}
+#company-radar .company-card-top{display:flex;flex-direction:column-reverse;gap:2px;grid-column:2;min-width:0}
+#company-radar .company-card-top b{color:#111827;font-size:1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#company-radar .company-card-top small{color:#334155;font-size:.78rem;font-weight:500;text-align:left}
+#company-radar .quote-line{align-items:baseline;display:flex;gap:8px;grid-column:3;grid-row:1/span 2;justify-content:flex-end;margin:0;white-space:nowrap}
+#company-radar .quote-line strong{font-size:1.35rem;font-weight:800}
+#company-radar .quote-line span{font-size:.9rem;font-weight:700}
+#company-radar .company-intro{color:#475569;font-size:.8rem;grid-column:2;line-height:1.35;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#company-radar .quote-meta,#company-radar .company-facts div:first-child{display:none}
+#company-radar .company-detail{border-width:1px 0 0;border-radius:0;box-shadow:none;max-height:260px;overflow-y:auto;position:static}
+@media (max-width:720px){#company-radar .company-toolbar{align-items:flex-start;flex-direction:column}#company-radar .quote-market-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}#company-radar .company-rail{max-height:560px}#company-radar .company-card{grid-template-columns:28px minmax(0,1fr);padding:10px 12px}#company-radar .quote-line{grid-column:2;grid-row:3;justify-content:flex-start}#company-radar .company-intro{white-space:normal}}
